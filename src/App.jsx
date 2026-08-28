@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 export default function App() {
   return (
-    <div className="bg-[#FAFAFB] text-gray-800">
+    <div className="bg-[#FAFAFB] text-gray-800 min-h-screen">
 
       {/* HERO */}
       <section className="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
@@ -25,9 +25,9 @@ export default function App() {
           </p>
 
           <div className="flex gap-4">
-          <Icon icon={<Mail />} link="ziyaengineer7@gmail.com" />
-          <Icon icon={<FiLinkedin />} link="https://www.linkedin.com/in/ziya-engineer-6664a028b/" />
-          <Icon icon={<FiGithub />} link="https://github.com/Ziya416" />
+            <Icon icon={<Mail size={24} />} link="mailto:ziyaengineer7@gmail.com" />
+            <Icon icon={<FiLinkedin size={24} />} link="https://www.linkedin.com/in/ziya-engineer-6664a028b/" />
+            <Icon icon={<FiGithub size={24} />} link="https://github.com/Ziya416" />
           </div>
         </div>
 
@@ -161,9 +161,9 @@ export default function App() {
         <h2 className="text-2xl font-semibold mb-6">Let’s Connect</h2>
 
         <div className="flex justify-center gap-6">
-          <Icon icon={<Mail />} />
-          <Icon icon={<FiLinkedin />} />
-          <Icon icon={<FiGithub />} />
+          <Icon icon={<Mail size={24} />} link="mailto:ziyaengineer7@gmail.com" />
+          <Icon icon={<FiLinkedin size={24} />} link="https://www.linkedin.com/in/ziya-engineer-6664a028b/" />
+          <Icon icon={<FiGithub size={24} />} link="https://github.com/Ziya416" />
         </div>
       </section>
 
@@ -183,8 +183,8 @@ function Project({ title, overview, tech, highlight, deployLink, githubLink, ima
     >
       <h3 className="text-lg font-semibold px-2">{title}</h3>
 
-      {/* IMAGE WRAPPER WITH DARK OVERLAY */}
-      <div className="relative group h-72 bg-[#e9f5ed] rounded-xl overflow-hidden flex items-center justify-center w-full">
+      {/* Added tabIndex and group-focus to fix mobile tapping */}
+      <div tabIndex="0" className="relative group h-72 bg-[#e9f5ed] rounded-xl overflow-hidden flex items-center justify-center w-full outline-none cursor-pointer">
         
         {image ? (
           <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -193,7 +193,7 @@ function Project({ title, overview, tech, highlight, deployLink, githubLink, ima
         )}
 
         {/* OVERLAY */}
-        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center">
+        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center">
           
           <h3 className="text-gray-200 text-xl font-semibold mb-4">{title}</h3>
           
@@ -227,8 +227,8 @@ function Backend({ title, overview, tech, githubLink, image }) {
     >
       <h3 className="font-semibold text-lg px-2">{title}</h3>
 
-      {/* IMAGE WRAPPER WITH DARK OVERLAY */}
-      <div className="relative group h-56 bg-[#f4f4f4] rounded-xl overflow-hidden flex items-center justify-center w-full">
+      {/* Added tabIndex and group-focus to fix mobile tapping */}
+      <div tabIndex="0" className="relative group h-56 bg-[#f4f4f4] rounded-xl overflow-hidden flex items-center justify-center w-full outline-none cursor-pointer">
         
         {image ? (
           <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -237,7 +237,7 @@ function Backend({ title, overview, tech, githubLink, image }) {
         )}
 
         {/* OVERLAY */}
-        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center">
+        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center">
           
           <h3 className="text-gray-200 text-lg font-semibold mb-3">{title}</h3>
 
@@ -262,7 +262,7 @@ function Icon({ icon, link }) {
       href={link} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="p-3 bg-[#a4b476] text-white rounded-full hover:bg-[#8e9e62] hover:scale-110 transition-all shadow-sm inline-block"
+      className="p-3 bg-[#E6D9FF] text-gray-800 rounded-full hover:bg-[#d5c2ff] hover:scale-110 transition-all shadow-sm inline-block"
     >
       {icon}
     </a>
