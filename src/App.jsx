@@ -25,9 +25,9 @@ export default function App() {
           </p>
 
           <div className="flex gap-4">
-            <Icon icon={<Mail />} />
-            <Icon icon={<FiLinkedin />} />
-            <Icon icon={<FiGithub />} />
+          <Icon icon={<Mail />} link="mailto:your.email@gmail.com" />
+          <Icon icon={<FiLinkedin />} link="www.linkedin.com/in/ziya-engineer-6664a028b" />
+          <Icon icon={<FiGithub />} link="https://github.com/Ziya416" />
           </div>
         </div>
 
@@ -256,11 +256,16 @@ function Backend({ title, overview, tech, githubLink, image }) {
   );
 }
 
-function Icon({ icon }) {
+function Icon({ icon, link }) {
   return (
-    <button className="p-3 bg-[#E6D9FF] rounded-full hover:scale-110 transition">
+    <a 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="p-3 bg-[#a4b476] text-white rounded-full hover:bg-[#8e9e62] hover:scale-110 transition-all shadow-sm inline-block"
+    >
       {icon}
-    </button>
+    </a>
   );
 }
 
