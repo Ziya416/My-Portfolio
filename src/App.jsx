@@ -32,30 +32,31 @@ export default function App() {
         </div>
 
         {/* SKILLS ICONS */}
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+        <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
           <h3 className="text-lg font-semibold mb-6 text-center text-gray-700">Core Technologies</h3>
           
-          <div className="flex flex-wrap justify-center gap-6">
-            <SkillIcon icon={<FaPython size={30} className="text-[#3776AB]" />} label="Python" />
-            <SkillIcon icon={<SiCplusplus size={30} className="text-[#00599C]" />} label="C / C++" />
-            <SkillIcon icon={<FaJava size={30} className="text-[#f89820]" />} label="Java" />
-            <SkillIcon icon={<FaHtml5 size={30} className="text-[#E34F26]" />} label="HTML/CSS" />
-            <SkillIcon icon={<SiJavascript size={30} className="text-[#F7DF1E]" />} label="JavaScript" />
+          {/* MOBILE: 4-column grid. DESKTOP: Flex wrap */}
+          <div className="grid grid-cols-4 gap-y-6 gap-x-2 md:flex md:flex-wrap md:justify-center md:gap-6 place-items-center">
+            <SkillIcon icon={<FaPython size={28} className="text-[#3776AB]" />} label="Python" />
+            <SkillIcon icon={<SiCplusplus size={28} className="text-[#00599C]" />} label="C / C++" />
+            <SkillIcon icon={<FaJava size={28} className="text-[#f89820]" />} label="Java" />
+            <SkillIcon icon={<FaHtml5 size={28} className="text-[#E34F26]" />} label="HTML/CSS" />
+            <SkillIcon icon={<SiJavascript size={28} className="text-[#F7DF1E]" />} label="JavaScript" />
             
-            <SkillIcon icon={<SiGooglecloud size={30} className="text-[#4285F4]" />} label="GCP" />
-            <SkillIcon icon={<FaBrain size={30} className="text-purple-600" />} label="LLMs" />
-            <SkillIcon icon={<FaRobot size={30} className="text-[#6366f1]" />} label="Agentic AI" />
-            <SkillIcon icon={<SiTensorflow size={30} className="text-[#FF6F00]" />} label="TensorFlow" />
-            <SkillIcon icon={<SiPandas size={30} className="text-[#150458]" />} label="Pandas" />
+            <SkillIcon icon={<SiGooglecloud size={28} className="text-[#4285F4]" />} label="GCP" />
+            <SkillIcon icon={<FaBrain size={28} className="text-purple-600" />} label="LLMs" />
+            <SkillIcon icon={<FaRobot size={28} className="text-[#6366f1]" />} label="Agentic AI" />
+            <SkillIcon icon={<SiTensorflow size={28} className="text-[#FF6F00]" />} label="TensorFlow" />
+            <SkillIcon icon={<SiPandas size={28} className="text-[#150458]" />} label="Pandas" />
             
-            <SkillIcon icon={<SiFastapi size={30} className="text-[#009688]" />} label="FastAPI" />
-            <SkillIcon icon={<SiFlask size={30} className="text-black" />} label="Flask" />
-            <SkillIcon icon={<SiMysql size={30} className="text-[#4479A1]" />} label="MySQL" />
-            <SkillIcon icon={<SiDocker size={30} className="text-[#2496ED]" />} label="Docker" />
-            <SkillIcon icon={<SiGit size={30} className="text-[#F05032]" />} label="Git" />
+            <SkillIcon icon={<SiFastapi size={28} className="text-[#009688]" />} label="FastAPI" />
+            <SkillIcon icon={<SiFlask size={28} className="text-black" />} label="Flask" />
+            <SkillIcon icon={<SiMysql size={28} className="text-[#4479A1]" />} label="MySQL" />
+            <SkillIcon icon={<SiDocker size={28} className="text-[#2496ED]" />} label="Docker" />
+            <SkillIcon icon={<SiGit size={28} className="text-[#F05032]" />} label="Git" />
             
-            <SkillIcon icon={<FiTerminal size={30} className="text-gray-700" />} label="Terminal" />
-            <SkillIcon icon={<FaChartBar size={30} className="text-[#F2C811]" />} label="PowerBI" />
+            <SkillIcon icon={<FiTerminal size={28} className="text-gray-700" />} label="Terminal" />
+            <SkillIcon icon={<FaChartBar size={28} className="text-[#F2C811]" />} label="PowerBI" />
           </div>
         </div>
       </section>
@@ -183,8 +184,7 @@ function Project({ title, overview, tech, highlight, deployLink, githubLink, ima
     >
       <h3 className="text-lg font-semibold px-2">{title}</h3>
 
-      {/* Added tabIndex and group-focus to fix mobile tapping */}
-      <div tabIndex="0" className="relative group h-72 bg-[#e9f5ed] rounded-xl overflow-hidden flex items-center justify-center w-full outline-none cursor-pointer">
+      <div tabIndex="0" className="relative group h-80 md:h-72 bg-[#e9f5ed] rounded-xl overflow-hidden flex items-center justify-center w-full outline-none cursor-pointer">
         
         {image ? (
           <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -192,23 +192,23 @@ function Project({ title, overview, tech, highlight, deployLink, githubLink, ima
           <span className="text-gray-500 font-medium">Add {title} Image</span>
         )}
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-8 text-center">
+        {/* OVERLAY: Added overflow-y-auto so long text scrolls on mobile instead of breaking */}
+        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-start items-center p-5 md:p-8 text-center overflow-y-auto">
           
-          <h3 className="text-gray-200 text-xl font-semibold mb-4">{title}</h3>
+          <h3 className="text-gray-200 text-lg md:text-xl font-semibold mb-3 md:mb-4 mt-2 shrink-0">{title}</h3>
           
-          <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+          <p className="text-gray-400 text-xs md:text-sm mb-5 md:mb-8 leading-relaxed">
             {overview} Built with {tech}.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-3 md:gap-4 shrink-0 mb-4 md:mb-0">
             {githubLink && (
-              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-transparent border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded-sm text-sm font-medium transition-colors">
+              <a href={githubLink} target="_blank" rel="noopener noreferrer" className="px-4 py-2 md:px-6 bg-transparent border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded-sm text-xs md:text-sm font-medium transition-colors">
                 Repo
               </a>
             )}
             {deployLink && (
-              <a href={deployLink} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-transparent border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded-sm text-sm font-medium transition-colors">
+              <a href={deployLink} target="_blank" rel="noopener noreferrer" className="px-4 py-2 md:px-6 bg-transparent border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded-sm text-xs md:text-sm font-medium transition-colors">
                 Live demo
               </a>
             )}
@@ -227,8 +227,7 @@ function Backend({ title, overview, tech, githubLink, image }) {
     >
       <h3 className="font-semibold text-lg px-2">{title}</h3>
 
-      {/* Added tabIndex and group-focus to fix mobile tapping */}
-      <div tabIndex="0" className="relative group h-56 bg-[#f4f4f4] rounded-xl overflow-hidden flex items-center justify-center w-full outline-none cursor-pointer">
+      <div tabIndex="0" className="relative group h-64 md:h-56 bg-[#f4f4f4] rounded-xl overflow-hidden flex items-center justify-center w-full outline-none cursor-pointer">
         
         {image ? (
           <img src={image} alt={title} className="w-full h-full object-cover" />
@@ -236,17 +235,17 @@ function Backend({ title, overview, tech, githubLink, image }) {
           <span className="text-gray-500 font-medium text-sm">Add Architecture Image</span>
         )}
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-6 text-center">
+        {/* OVERLAY: Added overflow-y-auto here as well */}
+        <div className="absolute inset-0 bg-[#0d1117]/95 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 flex flex-col justify-start items-center p-5 md:p-6 text-center overflow-y-auto">
           
-          <h3 className="text-gray-200 text-lg font-semibold mb-3">{title}</h3>
+          <h3 className="text-gray-200 text-base md:text-lg font-semibold mb-3 mt-2 shrink-0">{title}</h3>
 
-          <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+          <p className="text-gray-400 text-xs md:text-sm mb-5 md:mb-6 leading-relaxed">
             {overview} Built with {tech}.
           </p>
 
           {githubLink && (
-            <a href={githubLink} target="_blank" rel="noopener noreferrer" className="px-6 py-2 bg-transparent border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded-sm text-sm font-medium transition-colors">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer" className="px-4 py-2 md:px-6 bg-transparent border border-gray-600 text-gray-300 hover:border-gray-300 hover:text-white rounded-sm text-xs md:text-sm font-medium transition-colors shrink-0 mb-4 md:mb-0">
               Repo
             </a>
           )}
@@ -271,11 +270,11 @@ function Icon({ icon, link }) {
 
 function SkillIcon({ icon, label }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 w-20">
-      <div className="p-3 bg-[#FAFAFB] rounded-xl border border-gray-100 w-14 h-14 flex items-center justify-center shadow-sm">
+    <div className="flex flex-col items-center justify-center gap-2 w-16 md:w-20">
+      <div className="p-2 md:p-3 bg-[#FAFAFB] rounded-xl border border-gray-100 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center shadow-sm">
         {icon}
       </div>
-      <span className="text-xs font-medium text-gray-600 text-center">{label}</span>
+      <span className="text-[10px] md:text-xs font-medium text-gray-600 text-center leading-tight">{label}</span>
     </div>
   );
 }
