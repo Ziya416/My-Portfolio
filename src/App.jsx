@@ -25,8 +25,8 @@ export default function App() {
           </p>
 
           <div className="flex gap-4">
-          <Icon icon={<Mail />} link="mailto:your.email@gmail.com" />
-          <Icon icon={<FiLinkedin />} link="www.linkedin.com/in/ziya-engineer-6664a028b" />
+          <Icon icon={<Mail />} link="ziyaengineer7@gmail.com" />
+          <Icon icon={<FiLinkedin />} link="https://www.linkedin.com/in/ziya-engineer-6664a028b/" />
           <Icon icon={<FiGithub />} link="https://github.com/Ziya416" />
           </div>
         </div>
